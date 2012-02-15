@@ -2,3 +2,6 @@ lwr_fri/include/friComm.h
 .cproject
 .project
 .pydevproject
+kuka_IK/build
+kuka_IK/kuka_IK-gnulinux.pc
+kuka_IK/lib
