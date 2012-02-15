@@ -72,6 +72,8 @@
 #include <kdl/chainiksolverpos_nr_jl.hpp>
 #include <kdl/frames_io.hpp>
 
+//#include <rtt/os/TimeService.hpp>
+
 // Constant definition
 #define PI 3.14159
 
@@ -95,12 +97,17 @@ private:
     static const double JNT_LIMITS [];
 
 public:
+    // Analytical IK solver for 7dof, with arm angle as a parameter, thetas in rads!
+    static bool ikSolverAnalytical7DOF( geometry_msgs::Pose & poseDsr, std::vector<double> & jntPosDsr);
     //! Inverse kinematics of the KUKA LWR Robot (6 dof). Returns 1 if the requested position is reachable
     static bool ikSolver(std::vector<double> & jntPosMsr, geometry_msgs::Pose & poseDsr, std::vector<double> & jntPosDsr);
 	//! Inverse kinematics of the KUKA LWR Robot (7 dof). Returns 1 if the requested position is reachable
 	static bool ikSolverIterative7DOF(std::vector<double> & jntPosMsr, geometry_msgs::Pose & poseDsr, std::vector<double> & jntPosDsr);
     //! Forward kinematics of the KUKA LWR Robot (7 dof). Returns 1 if the requested position is reachable
 	static bool fkSolver(const std::vector<double> & jntPosDsr, geometry_msgs::Pose & poseDsr);
+
+	//RTT::os::TimeService::ticks time_begin_BENCHMARK;
+	//RTT::os::TimeService::Seconds time_passed_BENCHMARK;
 };
 
 }

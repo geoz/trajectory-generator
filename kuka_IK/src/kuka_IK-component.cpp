@@ -114,7 +114,7 @@ namespace kuka_IK{
 		//End of Super Debugging
 #endif
 
-
+		//if (! KukaLWR_Kinematics::ikSolverAnalytical7DOF( commandedPose, commndedPoseJntPos) ){
     	//if (!(KukaLWR_Kinematics::ikSolver(jntPos, commandedPose, commndedPoseJntPos))){
     	if (!(KukaLWR_Kinematics::ikSolverIterative7DOF(jntPos, commandedPose, commndedPoseJntPos))){
     		cout << "lastCommandedPose cannot be achieved" << endl;
